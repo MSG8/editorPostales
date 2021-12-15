@@ -1,0 +1,345 @@
+/*
+    @author: Manuel Solís Gómez (masogo008@gmail.com)
+    @description: Archivo que pondra estilo especifico de inicio en medidas de pixeles
+    @file: estiloInicioPx.css
+    @license: totalmente libre de derecho
+*/
+/*Añadimos fuentes*/
+@import url('https://fonts.googleapis.com/css2?family=Praise&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+/*Usado para todas las imagenes y videos, su tamaño se controlara por su contenedor*/
+img,video
+{
+    width: 100%;
+    height: auto;
+}
+/*body*/
+body
+{
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+/*Añadimos layout y estilo al header y su contenido*/
+header
+{
+    width: 1440px; 
+    height: 400px;
+    position: relative; /*Colocamos la posicion relative para colocar el logo y el titulo*/
+
+    background-image: url(../recursos/img/header.jpg);
+    background-size: 100%;
+}
+header div
+{
+    width: 200px;
+
+    position: absolute; /*Colocamos la posicion absoluta para colocar el logo en la esquina superior izquierda*/
+    left:15px;
+    top:15px;
+}
+header h1
+{
+    position: absolute; /*Colocamos la posicion absoluta para centrar el titulo*/
+    font-size: 80px;
+    left:310px;
+    top:160px;
+    word-spacing: 10px;/*Separamos las palabras 10px*/
+
+    font-family: 'Praise', cursive;/*Aplicamos la fuente que hemos importado*/
+    color: white;
+}
+/*articulo de introducción*/
+#introduccion
+{
+    width: 1200px;
+    margin: 0 auto; /* Centramos el contenedor con el margin, al ser auto colocara un margen a los lados de forma automatica*/
+}
+#introduccion section
+{
+    width: 1100px;
+    padding: 50px;
+
+    background-color: white;
+}
+#introduccion section h2
+{
+    font-size: 40px;
+    padding-bottom: 30px; /*Separamos el titulo de la informacion*/
+
+    font-weight: bold;
+}
+#introduccion section p
+{
+    width: 1100px;
+}
+/*articulo de video*/
+#video
+{
+    width: 1440px;
+
+    background-color: #0A58cc;
+}
+#video section 
+{
+    width: 1100px;
+    margin: 0 auto; /* Centramos el contenedor con el margin, al ser auto colocara un margen a los lados de forma automatica*/
+    padding: 30px 0;
+}
+/*articulo de editor de tarjetas*/
+#editor
+{
+    width: 1440px;
+}
+/*sección de para abrir editor*/
+#desplegable
+{
+    width: 1100px;
+    margin: 0 auto; /* Centramos el contenedor con el margin, al ser auto colocara un margen a los lados de forma automatica*/
+    padding: 30px 50px;
+
+    background-color: #FF8C00;
+}
+#desplegable div 
+{
+    width: 1100px;
+    display: flex; /*Organizamos su elementos contenidos*/
+    align-items: center; /*Centramos verticalmente el texto*/
+}
+#desplegable div div
+{
+    width: 100px;
+}
+#desplegable h2
+{
+    font-size: 40px;
+    padding-left: 10px; /*Separamos el texto del boton*/
+    width: 484px;
+
+    font-weight: bold;
+}
+/*sección de eleccion de frase*/
+#frase 
+{
+    width: 1100px;
+    margin: 0 auto; /* Centramos el contenedor con el margin, al ser auto colocara un margen a los lados de forma automatica*/
+    padding: 30px 50px;
+
+    background-color: #FFB04F;
+}
+#frase select
+{
+    width: 600px;
+    padding: 15px;
+}
+#frase textarea
+{
+    width: 1070px;
+    height: 270px;
+    padding: 15px;
+}
+#frase select, #frase textarea
+{
+    margin: 30px auto;  /* Centramos el contenedor con el margin, al ser auto colocara un margen a los lados de forma automatica*/
+    display: block;  /* Eliminamos algunos valores por defecto que contienen los elementos*/
+    border: 0;
+    font-size: 20px;   /* Colocamos el tamaño y el tipo de la letra ya que no toma el del body*/
+
+    font-family: 'Roboto', sans-serif;
+}
+/*sección de eleccion de fondo*/
+#slider
+{
+    width: 1440px;
+    height: 400px;
+    position: relative; /*Posicianamos el elemento en relative para colocar los elementos dentros de el*/
+
+    background-color: #0079B6;
+}
+#slider .desl
+{
+    width: 100px;
+    position: absolute; /*Posicionamos a los 'botones' de cambiar imagen centrado verticalmente*/
+    top: 150px;
+
+    z-index: 2; /*Colocamos el 'boton' por encima de los otros elementos*/
+}
+#slider .desl:first-child
+{
+   left: 50px;
+}
+#slider .desl:last-child
+{
+    right: 50px;
+}
+#slider #fondos
+{
+    display: flex; /*Organizamos su elementos contenidos*/
+    position: absolute; /*Posicionamos el slider en el centro del contenedor*/
+    top: 56px;
+}
+#slider #fondos div
+{
+    width: 288px;
+    height: 288px;
+    display: flex; /*Usamos el flex para centrar verticalmente las imagenes de fondo*/
+    align-items: center;
+
+    background-color: #0079B6;
+}
+/*sección de eleccion de plantilla*/
+#plantilla
+{
+    width: 1200px;
+    height: 600px;
+    margin: 0 auto; /* Centramos el contenedor con el margin, al ser auto colocara un margen a los lados de forma automatica*/
+    
+    background-color: #FFB04F;
+}
+#plantilla div
+{
+    width: 400px;
+    height: 400px;
+    float: left; /*Hacemos que se coloquen una al lado de otras*/
+    position: relative; /*Posicionamos en relative para modificarlos segun su posicion*/
+    top: 50px;
+    display: flex; /* Centramos verticalmente las imagenes*/
+    align-items: center;
+
+    background-color: #0079B6;
+}
+#plantilla div:nth-child(1)
+{
+    left: 100px;
+}
+#plantilla div:nth-child(3)
+{
+    left: -100px; 
+}
+#plantilla div:nth-child(2)
+{
+    top: 150px;
+
+    z-index: 2; /*La plantilla del centro se colocara encima de las demas*/
+}
+/*sección de eleccion de nombres*/
+#dedicar
+{
+    width: 1200px;
+    margin: 0 auto; /* Centramos el contenedor con el margin, al ser auto colocara un margen a los lados de forma automatica*/
+    
+    background-color: #004669;
+    text-align: center; /* Lo usamos para centrar el boton de creacion de tarjetas*/
+}
+#dedicar form div
+{
+    width: 1200px;
+    padding: 30px 0;
+    display: flex; /*Organizamos su elementos contenidos y los centramos verticalmente*/
+    align-items: center;
+
+    background-color: #0079B6;
+}
+#dedicar form div label
+{
+    width: 100px;
+    display: inline-block; /* Colocamos los label en este display para que podemos colocar el ancho que deseamos*/
+}
+#dedicar form div input[type="text"]
+{
+    width: 470px;
+    border: 0; /* Eliminamos algunos valores por defecto que contienen los elementos*/
+    padding: 15px;
+    font-size: 20px; /* Colocamos el tamaño y el tipo de la letra ya que no toma el del body*/
+
+    font-family: 'Roboto', sans-serif;
+}
+#dedicar form a
+{
+    width: 320px;
+    margin: 30px 0;
+    padding: 15px;
+    font-weight: bold; 
+    display: inline-block;/* Cambiamos su tipo de bloque al de linea con atributos de bloque*/
+
+    background-color: #FF8C00;
+}
+@media only screen and (max-width:950px)
+{
+    /*Cambiamos tamaño en em, asi cambiaremos el alto*/
+    body, input[type="text"]
+    {
+        font-size: 15px;
+    }
+    /*Al llegar a 950px cambiara el slider quitando uno de los elementos y cambiandole su tamaño*/
+    #slider #fondos div 
+    {
+        width: 327px; 
+    }
+    #slider #fondos div:nth-child(1)
+    {
+       display: none;
+    }
+    /*Bajamos las flechas*/
+    #slider .desl
+    {
+        top: 170px;
+    }
+}
+@media only screen and (max-width:550px)
+{
+    /*Cambiamos tamaño en em, asi cambiaremos el alto*/
+    body,input[type="text"]
+    {
+        font-size: 10px;
+    }
+    /*Al llegar a 550px cambiara el slider quitando uno de los elementos y cambiandole su tamaño*/
+    #slider #fondos div 
+    {
+        width: 275px;
+    }
+    #slider #fondos div:nth-child(3),#editor section:nth-child(3) #fondos div:nth-child(2)
+    {
+       display: none;
+    }
+    /*Bajamos las flechas*/
+    #slider .desl
+    {
+        width: 55px;
+        top: 190px; 
+    }
+}
+@media only screen and (max-width:500px)
+{
+    /*En 500px cambiaremos su displaya flex para que se coloquen pegados a la seccion y que se centren horizontakmente, si alguno sale fuera del contenedor se colocara abajo*/
+    #plantilla
+    {
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    #plantilla div
+    {
+        width: 208px; 
+        clear: left; /*Quitamos el flotamiento*/
+        position: static; /*Quitamos la posicion relativa*/
+        z-index: 1;
+    }
+}
+@media only screen and (max-width:320px)
+{
+    /*Al llegar a 320px cambiara el slider quitando uno de los elementos y cambiandole su tamaño*/
+    #slider #fondos div 
+    {
+        width: 320px;
+    }
+    #slider #fondos div:nth-child(4)
+    {
+       display: none;
+    }
+    /*Cambiamos el tamaño de la flecha*/
+    #slider .desl
+    {
+        width: 64px;
+    }
+}

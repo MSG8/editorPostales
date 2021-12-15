@@ -1,0 +1,36 @@
+/*
+    @author: Manuel Solís Gómez (masogo008@gmail.com)
+    @description: Archivo que pondra estilo especifico de postales en medidas de porcentajes
+    @file: estiloPostal.css
+    @license: totalmente libre
+*/
+/*Añadimos fuentes*/
+@import url('https://fonts.googleapis.com/css2?family=Petemoss&display=swap');
+body
+{
+    background-image: url('../img/fondoPostales.gif');
+    background-size: 100%;
+    font-family: 'Petemoss', cursive;
+    font-size: 20px;
+}
+main
+{
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+main p
+{
+    width: 50%;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    font-size: 5em;
+    margin: 0;
+
+    color: white;
+    text-shadow: 4px 4px 2px black;
+}

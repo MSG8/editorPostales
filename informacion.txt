@@ -1,0 +1,2 @@
+La edición de video y el video final no se puede enviar por Git ya que es un archivo que supera el limite de Git, para ver esto
+comuníquese con Manuel Solis Gómez (autor del contenido).

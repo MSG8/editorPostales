@@ -1,0 +1,418 @@
+/*
+    @author: Manuel Solís Gómez (masogo008@gmail.com)
+    @description: Archivo que pondra estilo especifico de inicio en medidas de porcentajes
+    @file: estiloInicio.css
+    @license: totalmente libre
+*/
+/*Añadimos fuentes*/
+@import url('https://fonts.googleapis.com/css2?family=Praise&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+/*body*/
+body
+{
+    font-size: 20px; /*Base en em de 20px*/
+    font-family: 'Roboto', sans-serif;
+}
+/*Añadimos layout y estilo al header y su contenido*/
+header
+{
+    width: 100%; /* 1440px en base de 1440px*/
+    height: 20em; /* 400px en base de 20px de tamaño de letra*/
+    position: relative; /*Colocamos la posicion relative para colocar el logo y el titulo*/
+
+    background-image: url(../img/header2.png);
+    background-size: 100%;
+}
+header div
+{
+    width: 13.889%; /* 200px en base de 1440px*/
+
+    position: absolute; /*Colocamos la posicion absoluta para colocar el logo en la esquina superior izquierda*/
+    left:1.04167%; /* 15px en base de 1440px*/
+    top:0.75em; /* 15px en base de 20px de tamaño de letra*/
+}
+header h1
+{
+    position: absolute; /*Colocamos la posicion absoluta para centrar el titulo*/
+    font-size: 4em; /* 80px en base de 20px de tamaño de letra*/
+    left:21.52778%; /* 310px en base de 1440px*/
+    top:8rem; /* 160px en base de 20px de tamaño de letra*/
+    word-spacing: 10px; /* Separamos las palabras 10px, no puedo colocar % ya que no lo permite la instrucción*/
+
+    font-family: 'Praise', cursive;/*Aplicamos la fuente que hemos importado*/
+    color: white;
+    text-shadow: 4px 4px 2px black;
+}
+/*articulo de introducción*/
+#introduccion
+{
+    width: 83.334%; /* 1200px en base de 1440px*/
+    margin: 0 auto; /* Centramos el contenedor con el margin, al ser auto colocara un margen a los lados de forma automatica*/
+}
+#introduccion section
+{
+    width: 91.66667%; /* 1100px en base de 1200px*/
+    padding: 2.5em 4.16667%; /* 50px en base de 1200px y en base de 20px de tamaño de letr */
+
+    background-color: white;
+}
+#introduccion section h2
+{
+    font-size: 2em; /* 40px en base de 20px de tamaño de letra*/
+    padding-bottom: 0.75em; /*Separamos el titulo de la informacion, son 30px en base de 40px*/
+
+    font-weight: bold;
+}
+#introduccion section p
+{
+    width: 100%; /* 1100px en base de 1100px, ya que por el padding añadido su espacio util solo es de 1100px*/
+    margin-bottom: 1em;
+    text-align: justify;
+}
+#introduccion section p:last-child
+{
+    margin-bottom: 0;
+}
+/*articulo de video*/
+#video
+{
+    width: 100%; /* 1440px en base de 1440px*/
+    display: flex; /*Colocamos las cajas una tras de otra las centramos*/
+    flex-wrap: wrap;
+    align-items: center;
+    justify-self: center;
+
+    background-color: #0079b6;
+}
+#video section 
+{
+    width: 38%; /* 547px en base de 1440px*/
+    margin: 0 auto; /* Centramos el contenedor con el margin, al ser auto colocara un margen a los lados de forma automatica*/
+    padding: 1.5em;  /*30px en base de 20px*/
+}
+#video section iframe
+{
+    width: 100%; /* 1100px en base de 1100px*/
+    height: 15.35em; /*307px en base de 20px, cuando se implemenete javascript se aplicara el ancho igual al del video */
+}
+/*articulo de editor de tarjetas*/
+#editor
+{
+    width: 100%; /* 1440px en base de 1440px*/
+}
+/*sección de para abrir editor*/
+#desplegable
+{
+    width: 76.38889%; /* 1100px en base de 1440px*/
+    margin: 0 auto; /* Centramos el contenedor con el margin, al ser auto colocara un margen a los lados de forma automatica*/
+    padding: 1.5em 3.4722%; /*30px en base de 20px, 50px en base de 1440px*/
+
+    background-color: #FF8C00;
+}
+#desplegable div 
+{
+    width: 100%; /* 1100px en base de 1100px*/
+    display: flex; /*Organizamos su elementos contenidos*/
+    align-items: center; /*Centramos verticalmente el texto*/
+}
+#desplegable div div
+{
+    width: 9.0909%; /* 100px en base de 1100px*/
+}
+#desplegable h2
+{
+    font-size: 2em; /*40px en base de 20px*/
+    padding-left: 0.909091%; /*Separamos el texto del boton, 10px en base de 1100px*/
+
+    font-weight: bold;
+}
+/*sección de eleccion de frase*/
+#frase 
+{
+    width: 76.38889%; /* 1100px en base de 1440px*/
+    margin: 0 auto; /* Centramos el contenedor con el margin, al ser auto colocara un margen a los lados de forma automatica*/
+    padding: 1.5em 3.4722%; /*30px en base de 20px, 50px en base de 1440px*/
+
+    background-color: #FFB04F;
+}
+#frase select
+{
+    width: 54.5454%; /* 600px en base de 1100px*/
+    padding: 0.75em 1.3636%; /* 15px en base de 1100px, 15px en base de 20px */
+}
+#frase textarea
+{
+    width: 97.2727%;  /* 1070px en base de 1100px*/
+    height: 6.5em; /*270px en base de 20px*/
+    padding: 0.75em 1.3636%; /* 15px en base de 1100px, 15px en base de 20px */
+}
+#frase select, #frase textarea
+{
+    margin: 1.5em auto;  /* Centramos el contenedor con el margin, al ser auto colocara un margen a los lados de forma automatica*/
+    display: block;  /* Eliminamos algunos valores por defecto que contienen los elementos*/
+    border: 0;
+    font-size: 0.8em;   /* Colocamos el tamaño y el tipo de la letra ya que no toma el del body*/
+
+    font-family: 'Roboto', sans-serif;
+}
+/*sección de eleccion de fondo*/
+#slider 
+{
+    width: 100%; /* 1440px en base de 1440px*/
+    height: 20em; /*400px en base de 20px*/
+    position: relative; /*Posicianamos el elemento en relative para colocar los elementos dentros de el*/
+
+    background-color: #0079B6;
+}
+#slider .desl
+{
+    width: 6.94445%; /* 1440px en base de 1440px*/
+    position: absolute; /*Posicionamos a los 'botones' de cambiar imagen centrado verticalmente*/
+    top: 7.5em; /*150px en base de 20px*/
+
+    z-index: 2; /*Colocamos el 'boton' por encima de los otros elementos*/
+}
+#slider .desl:first-child
+{
+   left: 3.4722%; /* 50px en base de 1440px*/
+}
+#slider .desl:last-child
+{
+   right: 3.4722%; /* 50px en base de 1440px*/
+}
+#slider #fondos
+{
+    display: flex; /*Organizamos su elementos contenidos*/
+    position: absolute; /*Posicionamos el slider en el centro del contenedor*/
+    top: 2.8em; /*56px en base de 20px*/
+}
+#slider #fondos div
+{
+    width: 20%; /* 288px en base de 1440px*/
+    height: 14.4em; /*288px en base de 20px*/
+    display: flex; /*Usamos el flex para centrar verticalmente las imagenes de fondo*/
+    align-items: center;
+
+    background-color: #8ad2f6;
+}
+#slider #fondos div:hover 
+{
+    transition: 1s;
+    width: 25%; /* 288px en base de 1440px*/
+    background-color: #6baccc;
+}
+#slider #fondos #fondoSeleccionado
+{
+    width: 25%; /* 288px en base de 1440px*/
+    background-color: #f8a540;
+}
+/*sección de eleccion de plantilla*/
+#plantilla
+{
+    width: 100%; /* 1200px en base de 1440px*/
+    height: 37.5em; /*750px en base de 20px*/
+    margin: 0 auto; /* Centramos el contenedor con el margin, al ser auto colocara un margen a los lados de forma automatica*/
+    
+}
+#plantilla div
+{
+    width: 33.33334%; /* 400px en base de 1200px*/
+    height: 20em; /*400px en base de 20px*/
+    float: left; /*Hacemos que se coloquen una al lado de otras*/
+    position: relative; /*Posicionamos los diferentes tipos de plantillas para que dos se encuentren arriba a los lados y otro en el centro sobre estas dos*/
+    top: 2.5em; /*50px en base de 20px*/
+    display: flex; /*Usado para centrar las imagenes*/
+    align-items: center;
+
+    -webkit-box-reflect: below 0.2em linear-gradient(transparent, transparent, transparent, rgba(0, 0, 0, 0.2));
+    background-color: #080d0e;
+}
+#plantilla div:nth-child(1)
+{
+    left: 8.3334%; /* 100px en base de 1440px*/
+}
+#plantilla div:nth-child(3)
+{
+    left: -8.3334%; /* 100px en base de 1440px*/
+}
+#plantilla div:nth-child(2)
+{
+    top: 7.5em; /*150px en base de 20px*/
+
+    z-index: 2; /*La plantilla del centro se colocara encima de las demas*/
+}
+#plantilla div:hover, #plantilla #plantillaSeleccionada 
+{ 
+    animation: flotar 6s infinite;
+}
+#plantilla div:nth-child(2):hover, #plantilla #plantillaCentralSeleccionada 
+{
+    animation: flotarCentro 6s infinite;
+}
+@keyframes flotar
+{
+    0% {top: 2.5em;background: #FF8C00;}
+    25% {top: 4.5em;background: #0079B6;}
+    50% {top: 2.5em;background: #FF8C00;}
+    75% {top: 4.5em;background: #0079B6;}
+    100% {top: 2.5em;background: #FF8C00;}
+}
+@keyframes flotarCentro
+{
+    0%   {top: 7.5em;background: #FF8C00;}
+    25%  {top: 9.5em;background: #0079B6;}
+    50%  {top: 7.5em;background: #FF8C00;}
+    75%  {top: 9.5em;background: #0079B6;}
+    100% {top: 7.5em;background: #FF8C00;}
+}
+/*sección de eleccion de nombres*/
+#dedicar
+{
+    width: 100%; /* 1200px en base de 1440px*/
+    margin: 0 auto; /* Centramos el contenedor con el margin, al ser auto colocara un margen a los lados de forma automatica*/
+    
+    background-color: #004669;
+    text-align: center; /* Lo usamos para centrar el boton de creacion de tarjetas*/
+}
+#dedicar form div
+{
+    width: 90%; /* 1080px en base de 1200px*/
+    padding: 1.5em 5%; /*30px en base de 20px*,60px en base de 1200px*/
+    display: flex; /*Organizamos su elementos contenidos y los centramos verticalmente*/
+    align-items: center;
+
+    background-color: #0079B6;
+}
+#dedicar form div label
+{
+    width: 8.33334%; /* 90px en base de 1080px*/
+    display: inline-block; /* Colocamos los label en este display para que podemos colocar el ancho que deseamos*/
+}
+#dedicar form div input[type="text"]
+{
+    width: 39.1667%; /* 450px en base de 1080px*/
+    border: 0; /* Eliminamos algunos valores por defecto que contienen los elementos*/
+    padding: 0.75em 1.25%; /*15px en base de 20px, 15px en base de 1200px*/
+    font-size: 20px; /* Colocmos el tamaño y el tipo de la letra ya que no toma el del body*/
+
+    font-family: 'Roboto', sans-serif;
+}
+#dedicar form a
+{
+    width: 26.66667%; /* 320px en base de 1200px*/
+    margin: 1.5em 0; /*30px en base de 20px*/
+    padding: 0.75em 1.25%; /*15px en base de 20px, 15px en base de 1200px*/
+    font-size: 1em; /* Colocamos el tamaño y el tipo de la letra ya que no toma el del body*/
+    font-weight: bold; 
+    display: inline-block; /* Cambiamos su tipo de bloque al de linea con atributos de bloque*/
+
+    font-family: 'Roboto', sans-serif;
+    background-color: #FF8C00;
+}
+#dedicar form a:hover
+{
+    transition: 1s;
+    color: white;
+    border: black inset 10px;
+    background-color: #0079B6;
+}
+@media only screen and (max-width:950px)
+{
+    /*Cambiamos tamaño en em, asi cambiaremos el alto*/
+    body, input[type="text"]
+    {
+        font-size: 15px;
+    }
+    /*Al llegar a 950px cambiara el slider quitando uno de los elementos y cambiandole su tamaño*/
+    #slider #fondos div 
+    {
+        width: 25%; /* 327px en base de 950px*/
+    }
+    #slider #fondos div:hover,#slider #fondos #fondoSeleccionado
+    {
+        width: 35%; /* 333px en base de 950px*/
+    }
+    #slider #fondos div:nth-child(1)
+    {
+       display: none;
+    }
+    /*Bajamos las flechas*/
+    #slider .desl
+    {
+        top: 8.5em; /*170px en base de 20px*/
+    }
+}
+@media only screen and (max-width:550px)
+{
+    /*Cambiamos tamaño en em, asi cambiaremos el alto*/
+    body, input[type="text"]
+    {
+        font-size: 10px;
+    }
+    /*Al llegar a 550px cambiara el slider quitando uno de los elementos y cambiandole su tamaño*/
+    #slider #fondos div 
+    {
+        width: 50%; /* 275px en base de 550px*/
+    }
+    #slider #fondos div:nth-child(3),#slider #fondos div:nth-child(2)
+    {
+       display: none;
+    }
+    #editor section:nth-child(3) #fondos div:hover,#slider #fondos #fondoSeleccionado
+    {
+        width: 60%; /* 330px en base de 550px*/
+    }
+    /*Bajamos las flechas*/
+    #editor section:nth-child(3) .desl
+    {
+        width: 10%; /*55px en base de 550px*/
+        top: 9.5em; /*190px en base de 20px*/
+    }
+    /*Colocamos los videos en columna en vez de en fila*/
+    #video section 
+    {
+        width: 76%; /* 1100px en base de 1440px*/
+    }
+
+}
+@media only screen and (max-width:500px)
+{
+    /*En 500px cambiaremos su displaya flex para que se coloquen pegados a la seccion y que se centren horizontakmente, si alguno sale fuera del contenedor se colocara abajo*/
+    #plantilla
+    {
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    #plantilla div
+    {
+        width: 50%; /*208px en base de 416px*/
+        clear: left; /*Quitamos el flotamiento*/
+        position: static; /*Quitamos la posicion relativa*/
+        z-index: 1;
+
+        -webkit-box-reflect: unset;
+    }
+    #plantilla div:nth-child(3)
+    {
+        z-index: 3;
+    }
+}
+@media only screen and (max-width:320px)
+{
+    /*Al llegar a 320px cambiara el slider quitando uno de los elementos y cambiandole su tamaño*/
+    #slider #fondos div,#editor section:nth-child(3) #fondos div:hover,#slider #fondos #fondoSeleccionado
+    {
+        width: 100%; /* 320px en base de 320px*/
+    }
+    #slider #fondos div:nth-child(4)
+    {
+       display: none;
+    }
+    /*Cambiamos el tamaño de la flecha*/
+    #slider .desl
+    {
+        width: 20%; /* 64px en base de 320px*/
+    }
+}
