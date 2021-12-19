@@ -149,7 +149,8 @@ class App
         }
         else
         {
-            alert('Usted quedo algun/os campos sin rellenar, compruebelo');
+            console.log('hola');
+            this.vista.alerta('🤖: Lo siento, me faltan datos, ¿ Podías comprobarlos, por favor?');
         }
     }
 }
@@ -164,6 +165,32 @@ class Vista
     constructor()
     {
         this.indiceFondos = 0;
+    }
+    /**
+     * Metodo encargado de mostrar un mensaje por pantalla
+     * @param {string} mensaje Frase que queremos que vea el usuario
+     */
+    alerta(mensaje)
+    {
+        let divAlerta= document.createElement('div');
+        divAlerta.setAttribute('id','alerta');
+        let pAlerta = document.createElement('p');
+        pAlerta.appendChild(document.createTextNode(mensaje));
+        let botonAlerta = document.createElement('button');
+        botonAlerta.appendChild(document.createTextNode('Gracias, Robot'));
+        botonAlerta.onclick = this.borrarAlerta.bind(this);
+        divAlerta.appendChild(pAlerta);
+        divAlerta.appendChild(botonAlerta);
+        document.getElementsByTagName('body')[0].appendChild(divAlerta);
+        
+        divAlerta.style.top= (document.getElementsByTagName('body')[0].clientHeight - (divAlerta.clientHeight*2)) +'px';
+    }
+    /**
+     * Metodo encargado de borrar la alerta
+     */
+    borrarAlerta()
+    {
+        document.getElementById('alerta').remove();
     }
     /**
      * Metodo encargado de borrar los elementos correspondientes al editor

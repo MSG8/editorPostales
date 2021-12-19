@@ -1,6 +1,6 @@
 /**
  * @description Clase principal de la aplicacion
- * @file app.js
+ * @file postal.js
  * @license GPL3 
  * @author Manuel Solís Gómez(masogo008@gmail.com)
  */
@@ -15,19 +15,42 @@
      */
     constructor()
     {
-        this.vista = new Vista(this);
+        this.vista = new Vista();
         this.modelo = new Modelo();
         window.onload = this.iniciar.bind(this);
+        this.vista.cambiarImagen(this.modelo.fondoSeleccionado); //llamamos al metodo antes de que se coloque la frase para tomar bien la medida de la postal
+        document.getElementsByTagName('button')[0].onclick = this.copiarPostal.bind(this);
     }
-     /**
-      * Metodo encargado de poner en funcionamiento los metodos que no necesitan al usuario y se inician nada más cargar la pagina
-      * Tambien se encarga de colocar los eventos que podra usar el usuario si lo busca
-      */
+    /**
+     * Metodo encargado de poner en funcionamiento el programa una vez que ya se han acabado las llamadas asincronas
+     */
     iniciar()
     {
-        this.vista.cambiarImagen(this.modelo.fondoSeleccionado);
-        this.vista.centrarPantalla(document.getElementsByTagName('main')[0]);
-        this.vista.colocarFrase(this.modelo.de,this.modelo.para);
+        setTimeout(this.motrarCargado,800,this);
+    }
+    /**
+     * Metodo encargado de copiar la ruta en el portapapeles
+     */
+    copiarPostal()
+    {
+        let aux = document.createElement("input");
+        aux.setAttribute("value",window.location.href);
+        document.body.appendChild(aux);
+        aux.select();
+        document.execCommand("copy");
+        document.body.removeChild(aux);
+
+        this.vista.alerta('🤖: Ya lo tienes copiado, ahora compartelo :D ');
+    }
+    /**
+     * Metodo encargado de personalizar la postal como el editor lo pidio
+     * @param {object} contructor 
+     */
+    motrarCargado(contructor)
+    {
+        document.getElementsByTagName('header')[0].remove();
+        contructor.vista.centrarPantalla(document.getElementsByTagName('main')[0]);
+        contructor.vista.colocarFrase(contructor.modelo.frase,contructor.modelo.de,contructor.modelo.para);
     }
  }
  /**
@@ -38,16 +61,14 @@
     /**
      * Constructor encargado de colocar los atributos necesarios de la vista
      */
-    constructor(controlador)
+    constructor()
     {
-        this.controlador = controlador;
-        this.imagen=document.getElementsByTagName('img')[0];
+        this.imagen=document.getElementById('postal');
         this.frase=document.getElementsByTagName('p')[0];
     }
     /**
      * Metodo encargado de centrar vertical y horizontalemente un elemento en su contenedor
      * 
-     * @param {elementoHTML} contenedor Elemento que contiene al alemento a centrar
      * @param {elementoHTML} elemento Elemento a centrar
      */
      centrarPantalla(elemento)
@@ -63,10 +84,52 @@
     {
         this.imagen.attributes.src.textContent = '../'+ruta;
     }
-    colocarFrase(de,para)
+    /**
+     * Metodo encargado de mostrar un mensaje por pantalla
+     * @param {string} mensaje Frase que queremos que vea el usuario
+     */
+    alerta(mensaje)
     {
-        console.log(this.frase.childNodes[0].textContent);
-        console.log(this.controlador.modelo.frase);
+        let divAlerta= document.createElement('div');
+        divAlerta.setAttribute('id','alerta');
+        let pAlerta = document.createElement('p');
+        pAlerta.appendChild(document.createTextNode(mensaje));
+        let botonAlerta = document.createElement('button');
+        botonAlerta.appendChild(document.createTextNode('Gracias, Robot'));
+        botonAlerta.onclick = this.borrarAlerta.bind(this);
+        divAlerta.appendChild(pAlerta);
+        divAlerta.appendChild(botonAlerta);
+        document.getElementsByTagName('body')[0].appendChild(divAlerta);
+
+        divAlerta.style.top= (document.getElementsByTagName('main')[0].clientHeight - (divAlerta.clientHeight)) +'px';
+        divAlerta.style.left= (document.getElementsByTagName('main')[0].clientWidth - (divAlerta.clientWidth*1.2)) +'px';
+    }
+    /**
+     * Metodo encargado de borrar la alerta
+     */
+    borrarAlerta()
+    {
+        document.getElementById('alerta').remove();
+    }
+    /**
+     * Metodo encargado de colocar la informacion de la postal con las selecciones marcadas anteriormente
+     * @param {string} frase Frase que selecciono el editor
+     * @param {string} de Persona que hace la postal
+     * @param {string} para Persona o grupo de personal que recibe la postal
+     */
+    colocarFrase(frase,de,para)
+    {
+        document.getElementById('frase').textContent = frase;
+        document.getElementById('de').textContent = ' '+de;
+        document.getElementById('para').textContent = ' '+para;
+
+        document.getElementById('frase').style.fontSize = ((document.getElementsByTagName('main')[0].clientWidth/2)/frase.length*10)+'px';
+        document.getElementById('dedicatoria').style.fontSize = ((document.getElementsByTagName('main')[0].clientWidth/2)/frase.length*10)+'px';
+
+        document.getElementById('dedicatoria').style.paddingBottom = document.getElementsByTagName('main')[0].clientHeight*0.09+'px';
+        document.getElementById('dedicatoria').style.top = (document.getElementsByTagName('main')[0].clientHeight - (document.getElementById('dedicatoria').clientHeight))+'px';
+      
+        document.getElementById('frase').style.paddingTop = document.getElementsByTagName('main')[0].clientHeight*0.12+'px';
     }
  }
  /**
@@ -88,14 +151,7 @@
         this.de=this.valorGet('de');
         this.para=this.valorGet('para');
         this.frase=null;
-        setTimeout(this.obtenerFrase,500);
-    }
-    /**
-     * Metodo encargado de pasar el objeto de un atributo estatico a un atributo
-     */
-    pasarDatosFrases()
-    {
-        console.log(Object.keys(Modelo.datosAsincronos));
+        setTimeout(this.obtenerFrase,800,this); //set timout con parametros, le paso el this o trabajara con window
     }
     /**
      * Metodo usado para abrir un archivo json y guardarla en un atributo estatico 
@@ -103,16 +159,14 @@
      */
     cargarJson(ruta)
     {
+        console.log(this);
         fetch(ruta)
         .then(respuesta => respuesta.json())
         .then(function(objeto)
         {
             Modelo.datosAsincronos=objeto;
-            console.log(Modelo.datosAsincronos);
         })
-        .catch(error => console.log('hemos tenido el error '+error));
-
-        setTimeout(this.pasarDatosFrases, 500);
+        .catch(error => alert('🤖: Lo sentimos, el bicho( '+error+' ) se coló en nuestro sistema y estamos peleando contra el, por favor pruebe mas tarde '));
     }
     /**
      * Metodo usado para devolver los valores de un determinado parametro pasado por el get
@@ -129,13 +183,13 @@
     /**
      * Metodo que se encargada de trabajar con el json y los parametros del numero de frase y en tipo de frase para obtener la frase correspondiente
      */
-    obtenerFrase()
+    obtenerFrase(modelo)
     {
-        let arrayTipos= '';
-        console.log(Modelo.datosAsincronos); 
+        let arrayTipos= null;
+        console.log(Modelo.datosAsincronos);
         arrayTipos = Object.keys(Modelo.datosAsincronos);
 
-        let tipo = arrayTipos[aplicacion.modelo.tipoFrase]; //usar el tipo para elegir que array sera
+        let tipo = arrayTipos[modelo.tipoFrase]; //usar el tipo para elegir que array sera
 
         let arrayTipoEspecifico = null; //preguntar como corregir esto para que se obtenga en el modelo y que sea uno al azar
 
@@ -146,7 +200,7 @@
                 arrayTipoEspecifico = Modelo.datosAsincronos[tiposFrases];
             }
         }
-        aplicacion.modelo.frase=arrayTipoEspecifico[aplicacion.modelo.numeroFrase];
+        modelo.frase=arrayTipoEspecifico[modelo.numeroFrase];
     }
  }
  Modelo.datosAsincronos;

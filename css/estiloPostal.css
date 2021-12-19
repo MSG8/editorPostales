@@ -6,12 +6,26 @@
 */
 /*Añadimos fuentes*/
 @import url('https://fonts.googleapis.com/css2?family=Petemoss&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 body
 {
     background-image: url('../img/fondoPostales.gif');
     background-size: 100%;
     font-family: 'Petemoss', cursive;
     font-size: 20px;
+}
+header
+{
+    position: absolute;
+    background-color: blanchedalmond;
+    z-index: 10;
+    width: 100%;
+}
+header div
+{
+    display: block;
+    margin: 0 auto;
+    width: 65%;
 }
 main
 {
@@ -22,10 +36,11 @@ main
     top: 0;
     left: 0;
 }
-main p
+#frase,#dedicatoria
 {
-    width: 50%;
+    width: 40%;
     position: absolute;
+    padding: 0.4em 5%;
     left: 50%;
     top: 0;
     font-size: 5em;
@@ -33,4 +48,28 @@ main p
 
     color: white;
     text-shadow: 4px 4px 2px black;
+}
+div
+{
+    display: flex;
+    align-items: start;
+    text-align: center;
+}
+div a, div button
+{
+    flex: 1; 
+    background-color: transparent;
+    border: 0;
+    color: white;
+    padding: 1em 15%;
+    display: inline-block;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+}
+div a:hover, div button:hover
+{
+    cursor: pointer;
+    font-weight: bold;
+    transition: 1s;
+    font-size: 1.3em;
 }

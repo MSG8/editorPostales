@@ -4,6 +4,8 @@
     @file: estiloGeneral.css
     @license: totalmente libre
 */
+/*Añadimos fuentes*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 html
 {
 	scroll-behavior: smooth;
@@ -19,6 +21,54 @@ img,video
 {
     width: 100%;
     height: auto;
+}
+/*Alerta para la pagina web*/
+#alerta
+{
+	position: absolute;
+	box-shadow: black 0px 17px 20px 9px;
+	margin: 0 10%;
+	text-align: center;
+	display: block;
+	color: rgb(0, 0, 0);
+	top: 0;
+	left: 0;
+	border: 20px rgb(140 155 172) inset;
+	background-image: url('../img/fondoMetalico2.jpg');
+	background-size: 100%;
+	background-repeat: repeat;
+
+	z-index: 100;
+    font-family: 'Roboto', sans-serif;
+}
+#alerta p, #alerta button
+{
+	display: block;
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+#alerta p
+{
+	font-size: 2em;
+	font-weight: bold;
+	background-color: rgba(179, 179, 179, 0.561);
+	padding: 1em 5%;
+	margin-bottom: 1em;
+}
+#alerta button
+{
+	background-color: rgba(179, 179, 179, 0.561);
+	color: rgb(0, 0, 0);
+	margin: 0 auto 1em auto;
+	font-size: 1.5em;
+}
+#alerta button:hover
+{
+	color: rgb(0, 0, 0);
+	transition: 1s;
+	font-weight: bold;
+	font-size: 2em;
 }
 /*Reset css*/
 html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,
